@@ -1,7 +1,7 @@
 FROM eclipse-temurin:17-jdk-alpine as builder
 WORKDIR application
-COPY ./target/*.jar roller-nestboxes.jar
-RUN java -Djarmode=layertools -jar exam.jar extract
+COPY ./target/*.jar dossiers.jar
+RUN java -Djarmode=layertools -jar dossiers.jar extract
 
 FROM eclipse-temurin:17-jre-alpine
 

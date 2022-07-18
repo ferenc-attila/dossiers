@@ -5,45 +5,45 @@ version: '3.9'
 services:
   exam-database:
     image: mariadb:10.8
-    container_name: exam_db
+    container_name: dossiers_db
     restart: on-failure
     ports:
       - "3306:3306"
     environment:
-      MYSQL_DATABASE: exam
-      MYSQL_USER: exam
-      MYSQL_PASSWORD: exam
+      MYSQL_DATABASE: dossiers
+      MYSQL_USER: dossiers
+      MYSQL_PASSWORD: dossiers
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
 
   exam-test-database:
     image: mariadb:10.8
-    container_name: exam_test_db
+    container_name: dossiers_test_db
     restart: on-failure
     ports:
       - "3307:3306"
     environment:
-      MYSQL_DATABASE: exam-test
-      MYSQL_USER: exam
-      MYSQL_PASSWORD: exam
+      MYSQL_DATABASE: dossiers-test
+      MYSQL_USER: dossiers
+      MYSQL_PASSWORD: dossiers
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
 
   exam-app:
     build:
       context: ./../
       dockerfile: ./docker/Dockerfile
-    image: ferencattila/exam
-    container_name: exam_app
+    image: ferencattila/dossiers
+    container_name: dossiers_app
     restart: on-failure
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mariadb://exam-database:3306/exam
-      SPRING_DATASOURCE_USER: exam
-      SPRING_DATASOURCE_PASSWORD: exam
+      SPRING_DATASOURCE_URL: jdbc:mariadb://localhost:3306/dossiers
+      SPRING_DATASOURCE_USER: dossiers
+      SPRING_DATASOURCE_PASSWORD: dossiers
       SPRING_JPA_HIBERNATE_DDL-AUTO: none
       SPRING_JPA_SHOW-SQL: 1
 
     depends_on:
       - exam-database
       - exam-test-database
-    entrypoint: ['/opt/bin/wait-for-it.sh', '-t', '120', 'exam-database:3306', '--', 'java', 'org.springframework.boot.loader.JarLauncher']
+    entrypoint: [ '/opt/bin/wait-for-it.sh', '-t', '120', 'localhost:3306', '--', 'java', 'org.springframework.boot.loader.JarLauncher' ]
