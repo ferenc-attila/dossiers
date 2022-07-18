@@ -41,4 +41,12 @@ public class Dossier {
     @ManyToOne
     @JoinColumn(name = "case_manager_id")
     private CaseManager caseManager;
+
+    public Dossier(LocalDate dateOfArrival, int deadline, String subject, String description, String department) {
+        this.dateOfArrival = dateOfArrival;
+        this.deadline = deadline;
+        this.subject = subject;
+        this.description = description;
+        this.department = department;
+    }
 }

@@ -22,12 +22,11 @@
 ## REST API
 
 - ügyintéző felvétele
-- ügyintézők listázása, szűrés osztály alapján
+- ügyintézők listázása, szűrés osztálynév részlet alapján
 - ügyintéző törlése, ügyiratok átruházásával
-- ügyintéző beosztás és osztály módosítása
+- ügyintéző szervezeti egység módosítása
 
 - ügyirat felvétele, ügyintéző hozzárendelése osztály, és megválaszolatlan ügyiratok száma alapján
-- ügyiratok listázása (osztályra vagy ügyintézőre szűrés)
-- megválaszolatlan ügyiratok listázása
+- ügyiratok listázása (opcionális osztályra szűrés)
+- ügyirat megválaszolása (státusz módosul, lekerül az ügyintéző listájáról)
 - ügyirat statisztika (ügyintéző/megválaszolt, megválaszolatlan határidőn belül, megválaszolatlan határidőn túl) (opcionális)
-- ügyirat státuszának módosítása

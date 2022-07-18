@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
@@ -27,5 +28,15 @@ public class CaseManager {
     private String department;
 
     @OneToMany(mappedBy = "caseManager")
-    private List<Dossier> dossiers = new java.util.ArrayList<>();
+    private List<Dossier> dossiers = new ArrayList<>();
+
+    public CaseManager(String name, String department) {
+        this.name = name;
+        this.department = department;
+    }
+
+    public void addDossier(Dossier dossier) {
+        dossiers.add(dossier);
+        dossier.setCaseManager(this);
+    }
 }

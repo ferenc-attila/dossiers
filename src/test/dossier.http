@@ -1,0 +1,61 @@
+POST http://localhost:8080/api/managers
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Jill Doe",
+  "department": "Finance Department"
+}
+
+###
+
+GET http://localhost:8080/api/managers
+Accept: application/json
+
+###
+
+GET http://localhost:8080/api/managers?department=Leg
+Accept: application/json
+
+###
+
+PUT http://localhost:8080/api/managers/1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "department": "Legal Department"
+}
+
+###
+
+POST http://localhost:8080/api/dossiers
+Accept: application/json
+Content-Type: application/json
+
+{
+  "dateOfArrival": "2022-05-15",
+  "deadline": 10,
+  "subject": "CV",
+  "description": "Joe Doe's CV",
+  "department": "HR Department"
+}
+
+###
+
+GET http://localhost:8080/api/dossiers?department=fin
+Accept: application/json
+
+###
+
+GET http://localhost:8080/api/dossiers
+Accept: application/json
+
+###
+
+PUT http://localhost:8080/api/dossiers/1
+Accept: application/json
+
+###
+
+DELETE http://localhost:8080/api/managers/3
