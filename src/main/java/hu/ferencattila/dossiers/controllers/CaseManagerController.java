@@ -34,6 +34,7 @@ public class CaseManagerController {
     public CaseManagerDetails updateCaseManagerDepartment(@PathVariable(value = "id") long id, @RequestBody UpdateCaseManagerCommand command) {
         return service.updateCaseManagerDepartment(id, command);
     }
+
     @DeleteMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void removeCaseManager(@PathVariable("id") long id) {

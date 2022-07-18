@@ -18,7 +18,7 @@ public class DossierController {
     private DossiersCaseManagersService service;
 
     @PostMapping
-    public DossierDetails createDossier (@Valid @RequestBody CreateDossierCommand command) {
+    public DossierDetails createDossier(@Valid @RequestBody CreateDossierCommand command) {
         return service.createDossier(command);
     }
 

@@ -11,7 +11,6 @@ import hu.ferencattila.dossiers.models.DossierStatus;
 import hu.ferencattila.dossiers.repositories.CaseManagerRepository;
 import hu.ferencattila.dossiers.repositories.DossierRepository;
 import lombok.AllArgsConstructor;
-import org.apache.catalina.Manager;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
